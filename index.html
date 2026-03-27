@@ -421,6 +421,327 @@
     }
   }
 
+  /* =========================================
+     CSS DROPDOWN MENU
+  ========================================= */
+  .nav-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .nav-dropdown .dropbtn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  
+  .nav-dropdown:hover .dropbtn {
+    color: var(--blue-dark);
+    background: var(--blue-light);
+  }
+  
+  .dropdown-content {
+    display: none; /* Disembunyikan secara default */
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    padding: 8px 0;
+    overflow: hidden;
+  }
+  
+  /* Link di dalam dropdown */
+  .dropdown-content a {
+    color: var(--text) !important;
+    padding: 10px 20px !important;
+    text-decoration: none;
+    display: block;
+    font-weight: 600 !important;
+    border-radius: 0 !important;
+    transition: 0.2s;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: var(--blue-light) !important;
+    color: var(--blue-dark) !important;
+    padding-left: 24px !important; /* Efek geser kanan saat dihover */
+  }
+  
+  /* Munculkan dropdown saat di-hover */
+  .nav-dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeInDown 0.3s ease;
+  }
+  
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsif Mobile untuk Dropdown */
+  @media (max-width: 768px) {
+    .nav-dropdown { display: block; width: 100%; text-align: left; }
+    .nav-dropdown .dropbtn { width: 100%; padding: 10px 0; }
+    .dropdown-content { 
+      position: static; 
+      box-shadow: none; 
+      border: none; 
+      background: #f8fafc; 
+      padding-left: 16px; 
+      display: none; 
+      margin-top: 8px;
+      border-radius: 8px;
+    }
+    .nav-dropdown:hover .dropdown-content { display: block; }
+  }
+
+  /* =========================================
+     CSS HALAMAN BERITA
+  ========================================= */
+  .berita-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .berita-card {
+    background: #ffffff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .berita-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--blue-light);
+  }
+
+  .berita-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: var(--blue-light);
+  }
+
+  .berita-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .berita-card:hover .berita-img {
+    transform: scale(1.08);
+  }
+
+  .berita-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--blue-mid);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    padding: 6px 14px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .berita-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .berita-meta {
+    font-size: 13px;
+    color: var(--gray-dark);
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .berita-meta i {
+    color: var(--blue-mid);
+  }
+
+  .berita-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--blue-darker);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .berita-excerpt {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .berita-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue-mid);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+
+  .berita-link i {
+    font-size: 12px;
+    transition: transform 0.2s;
+  }
+
+  .berita-link:hover {
+    color: var(--gold-dark);
+  }
+
+  .berita-link:hover i {
+    transform: translateX(4px); /* Efek panah maju ke kanan */
+  }
+
+  /* Responsif untuk tablet dan HP */
+  @media (max-width: 900px) {
+    .berita-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .berita-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+ /* =========================================
+     CSS PROGRAM SLIDER (BISA SCROLL + LOOPING)
+  ========================================= */
+  .program-slider { 
+    display: flex; 
+    gap: 24px; 
+    overflow-x: auto; /* Bisa digeser manual */
+    padding-bottom: 32px; 
+    scroll-snap-type: x mandatory; /* Ngepasin posisi pas digeser */
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+  }
+  
+  .program-slider::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  .program-card { 
+    background: #fff; 
+    border-radius: var(--radius); 
+    border: 1px solid #e2e8f0; 
+    padding: 32px 24px; 
+    text-align: center; 
+    transition: all .3s; 
+    position: relative; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    flex: 0 0 340px; /* Lebar kartu */
+    scroll-snap-align: center; 
+  }
+  
+  .program-card::before { 
+    content:''; 
+    position:absolute; top:0; left:0; right:0; height:4px; 
+    background: linear-gradient(90deg, var(--blue), var(--blue-mid)); 
+  }
+  
+  .program-card:hover { 
+    border-color: var(--blue-light); 
+    box-shadow: var(--shadow-lg); 
+    transform: translateY(-4px); 
+  }
+
+  .program-icon { 
+    width: 72px; height: 72px; background: var(--blue-light); border-radius: 20px; 
+    display: flex; align-items: center; justify-content: center; font-size: 32px; 
+    margin: 0 auto 20px; color: var(--blue-dark); 
+  }
+  
+  .program-title { font-size: 18px; font-weight: 800; color: var(--blue-darker); margin-bottom: 10px; }
+  .program-desc { font-size: 14px; color: var(--text-light); line-height: 1.7; font-weight: 500; }
+
+  @media (max-width: 768px) {
+    .program-card {
+      flex: 0 0 280px; 
+      padding: 24px 20px;
+    }
+  }
+
+  /* =========================================
+     CSS PRESTASI SLIDER
+  ========================================= */
+  .prestasi-slider { 
+    display: flex; 
+    gap: 24px; 
+    overflow-x: auto; 
+    padding-bottom: 32px; 
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+  }
+  
+  .prestasi-slider::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  /* Pastikan Anda menambahkan flex dan scroll-snap-align di class ini */
+  .prestasi-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    transition: all .3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    flex: 0 0 300px; /* Lebar kartu di PC */
+    scroll-snap-align: center; /* Efek magnet ke tengah */
+  }
+
+  .prestasi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--gold);
+  }
+
+  @media (max-width: 768px) {
+    .prestasi-card {
+      flex: 0 0 260px; /* Lebar kartu di HP */
+    }
+  }
 </style>
 </head>
 <body>
@@ -436,16 +757,28 @@
           <div class="school-sub">Sekolah Islam TK · SD · SMP</div>
         </div>
       </a>
+      
       <div class="nav-links" id="navLinks">
         <a onclick="showPage('beranda')" id="nav-beranda" class="active">Beranda</a>
         <a onclick="showPage('profil')" id="nav-profil">Profil</a>
         <a onclick="showPage('ppdb')" id="nav-ppdb">PPDB</a>
-        <a onclick="showPage('tk')" id="nav-tk">TK</a>
-        <a onclick="showPage('sd')" id="nav-sd">SD</a>
-        <a onclick="showPage('smp')" id="nav-smp">SMP</a>
+        
+        <div class="nav-dropdown">
+          <a class="dropbtn">Jenjang ▾</a>
+          <div class="dropdown-content">
+            <a onclick="showPage('tk')" id="nav-tk">TK</a>
+            <a onclick="showPage('sd')" id="nav-sd">SD</a>
+            <a onclick="showPage('smp')" id="nav-smp">SMP</a>
+          </div>
+        </div>
+        
+        <a onclick="showPage('berita')" id="nav-berita">Berita</a>
+        
         <a onclick="showPage('kontak')" id="nav-kontak">Kontak</a>
-        <a onclick="showPage('ppdb')" class="btn-primary nav-cta">✏️ Daftar Sekarang</a>
+        
+        <a onclick="showPage('ppdb')" class="btn-primary nav-cta" style="color: #ffffff !important;">✏️ Daftar Sekarang</a>
       </div>
+      
       <div class="hamburger" onclick="toggleNav()" id="hamburger">
         <span></span><span></span><span></span>
       </div>
@@ -504,33 +837,39 @@
   </section>
 
   <!-- PROGRAM UNGGULAN -->
-  <section style="background:#fff;" class="dots-bg">
+<section style="background:#fff;" class="dots-bg">
     <div class="container">
       <div class="section-header">
         <div class="badge">Program Unggulan</div>
         <h2 class="section-title" style="margin-top:12px;">Keunggulan Sekolah Kami</h2>
         <p class="section-sub">Kurikulum terintegrasi yang memadukan nilai Islam, teknologi modern, dan pengembangan karakter holistik.</p>
       </div>
-      <div class="program-grid">
-        <div class="program-card"><div class="program-icon">📖</div><h3 class="program-title">Tahsin & Tahfidz</h3><p class="program-desc">Program Quran terpadu dengan metode Ummi. Siswa belajar membaca, memahami, dan menghafal Al-Quran secara sistematis dan menyenangkan.</p></div>
-        <div class="program-card"><div class="program-icon">💻</div><h3 class="program-title">ICT & Coding</h3><p class="program-desc">Lab komputer modern dengan pembelajaran coding, robotika, dan literasi digital untuk mempersiapkan siswa di era Industry 4.0.</p></div>
-        <div class="program-card"><div class="program-icon">🌍</div><h3 class="program-title">Bilingual</h3><p class="program-desc">Pembelajaran dua bahasa (Bahasa Inggris & Arab) yang terintegrasi dalam keseharian, menyiapkan siswa sebagai warga global.</p></div>
-        <div class="program-card"><div class="program-icon">🤝</div><h3 class="program-title">Character Building</h3><p class="program-desc">Program pembentukan karakter berbasis nilai 7S SIPAN: Senyum, Salam, Sapa, Sopan, Santun, Sigap, dan Semangat.</p></div>
-        <div class="program-card"><div class="program-icon">🌱</div><h3 class="program-title">Peduli Lingkungan</h3><p class="program-desc">Kegiatan tematik harian yang mengintegrasikan kesadaran lingkungan, kebersihan diri, dan kepedulian sosial dalam kurikulum.</p></div>
-        <div class="program-card"><div class="program-icon">👑</div><h3 class="program-title">Leadership</h3><p class="program-desc">Program pembinaan kepemimpinan sejak dini melalui kegiatan OSIS, pramuka, dan berbagai organisasi kesiswaan.</p></div>
+      
+      <div class="program-slider">
+          <div class="program-card"><div class="program-icon">📖</div><h3 class="program-title">Tahsin & Tahfidz</h3><p class="program-desc">Program Quran terpadu dengan metode Ummi.</p></div>
+          <div class="program-card"><div class="program-icon">💻</div><h3 class="program-title">ICT & Coding</h3><p class="program-desc">Lab komputer modern dengan pembelajaran coding.</p></div>
+          <div class="program-card"><div class="program-icon">🌍</div><h3 class="program-title">Bilingual</h3><p class="program-desc">Pembelajaran dua bahasa (Bahasa Inggris & Arab).</p></div>
+          <div class="program-card"><div class="program-icon">🤝</div><h3 class="program-title">Character Building</h3><p class="program-desc">Program pembentukan karakter berbasis nilai 7S.</p></div>
+          <div class="program-card"><div class="program-icon">🌱</div><h3 class="program-title">Peduli Lingkungan</h3><p class="program-desc">Kegiatan tematik harian kesadaran lingkungan.</p></div>
+          <div class="program-card"><div class="program-icon">👑</div><h3 class="program-title">Leadership</h3><p class="program-desc">Program pembinaan kepemimpinan sejak dini.</p></div>
+        </div>
+      
+      <div style="text-align: center; margin-top: 20px; color: var(--gray-dark); font-size: 13px; font-weight: 600;">
+        <i class="fas fa-arrows-alt-h"></i> Geser ke samping untuk melihat lebih banyak
       </div>
     </div>
   </section>
 
   <!-- PRESTASI -->
-  <section class="prestasi-section">
+<section class="prestasi-section">
     <div class="container">
       <div class="section-header">
         <div class="badge">Prestasi 2025</div>
         <h2 class="section-title" style="margin-top:12px;">Capaian Membanggakan</h2>
         <p class="section-sub">FLS2N 2025 dan berbagai kompetisi regional & nasional</p>
       </div>
-      <div class="prestasi-grid">
+
+      <div class="prestasi-slider">
         <div class="prestasi-card"><div class="prestasi-medal">🥇</div><div class="prestasi-title">Lomba Seni Tari FLS2N</div><div class="prestasi-info">Tingkat Kabupaten</div><span class="prestasi-tag tag-gold">Juara 1</span></div>
         <div class="prestasi-card"><div class="prestasi-medal">🥇</div><div class="prestasi-title">Menyanyi Tunggal FLS2N</div><div class="prestasi-info">Tingkat Provinsi</div><span class="prestasi-tag tag-gold">Juara 1</span></div>
         <div class="prestasi-card"><div class="prestasi-medal">🥈</div><div class="prestasi-title">Pantomim FLS2N</div><div class="prestasi-info">Tingkat Kabupaten</div><span class="prestasi-tag tag-silver">Juara 2</span></div>
@@ -539,6 +878,10 @@
         <div class="prestasi-card"><div class="prestasi-medal">🥈</div><div class="prestasi-title">Cipta Puisi FLS2N</div><div class="prestasi-info">Tingkat Kabupaten</div><span class="prestasi-tag tag-silver">Juara 2</span></div>
         <div class="prestasi-card"><div class="prestasi-medal">🥉</div><div class="prestasi-title">Desain Poster FLS2N</div><div class="prestasi-info">Tingkat Kabupaten</div><span class="prestasi-tag tag-bronze">Juara 3</span></div>
         <div class="prestasi-card"><div class="prestasi-medal">🏆</div><div class="prestasi-title">Robotika Nasional</div><div class="prestasi-info">Tingkat Nasional</div><span class="prestasi-tag tag-juara">Finalis</span></div>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px; color: var(--gray-dark); font-size: 13px; font-weight: 600;">
+        <i class="fas fa-arrows-alt-h"></i> Geser ke samping untuk melihat lebih banyak
       </div>
     </div>
   </section>
@@ -676,13 +1019,14 @@
 
 <!-- ======== TK ======== -->
 <div id="page-tk" class="page">
-  <div class="unit-hero unit-hero-tk">
+  <div style="background:linear-gradient(135deg, #0284c7, #38bdf8); padding:80px 0; text-align:center; box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);">
     <div class="container">
-      <div class="unit-badge">🧒 TK Panji Nusantara</div>
-      <h1>Taman Kanak-Kanak</h1>
-      <p>Pendidikan anak usia dini berbasis Islami dengan metode belajar menyenangkan, atraktif, dan berpusat pada anak</p>
+      <div class="badge badge-gold" style="margin-bottom:16px;">TK Islam Panji Nusantara</div>
+      <h1 style="font-size: clamp(32px,5vw,52px); font-weight: 900; color: #fff; margin-bottom: 16px; text-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);">Taman Kanak-Kanak</h1>
+      <p style="color: #f0f9ff; font-weight: 500; font-size: 18px; max-width: 600px; margin: 0 auto;">Pendidikan anak usia dini berbasis Islami dengan metode belajar menyenangkan, atraktif, dan berpusat pada anak</p>
     </div>
   </div>
+
 
   <section style="background:#fff;">
     <div class="container">
@@ -761,13 +1105,14 @@
 
 <!-- ======== SD ======== -->
 <div id="page-sd" class="page">
-  <div class="unit-hero unit-hero-sd">
+  <div style="background:linear-gradient(135deg, #055885, #26adec); padding:80px 0; text-align:center; box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);">
     <div class="container">
-      <div class="unit-badge">🎒 SD Panji Nusantara</div>
-      <h1>Sekolah Dasar</h1>
-      <p>Membangun fondasi akademik, karakter, dan teknologi yang kuat untuk siswa Kelas 1–6</p>
+      <div class="badge badge-gold" style="margin-bottom:16px;">🎒 SD Islam Panji Nusantara</div>
+      <h1 style="font-size: clamp(32px,5vw,52px); font-weight: 900; color: #fff; margin-bottom: 16px; text-shadow: 0 4px 10px rgba(5, 88, 133, 0.3);">Sekolah Dasar</h1>
+      <p style="color: #f0f9ff; font-weight: 500; font-size: 18px; max-width: 600px; margin: 0 auto;">Membangun fondasi akademik, karakter, dan teknologi yang kuat untuk siswa Kelas 1–6</p>
     </div>
   </div>
+
 
   <section style="background:#fff;">
     <div class="container">
@@ -863,13 +1208,14 @@
 
 <!-- ======== SMP ======== -->
 <div id="page-smp" class="page">
-  <div class="unit-hero unit-hero-smp">
+  <div style="background:linear-gradient(135deg, #082f49, #0369a1); padding:80px 0; text-align:center; box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);">
     <div class="container">
-      <div class="unit-badge">🎓 SMP Panji Nusantara</div>
-      <h1>Sekolah Menengah Pertama</h1>
-      <p>Membentuk pemimpin masa depan dengan keunggulan akademik, akhlak mulia, dan wawasan global</p>
+      <div class="badge badge-gold" style="margin-bottom:16px;">🎓 SMP Islam Panji Nusantara</div>
+      <h1 style="font-size: clamp(32px,5vw,52px); font-weight: 900; color: #fff; margin-bottom: 16px; text-shadow: 0 4px 10px rgba(8, 47, 73, 0.4);">Sekolah Menengah Pertama</h1>
+      <p style="color: #f0f9ff; font-weight: 500; font-size: 18px; max-width: 600px; margin: 0 auto;">Membentuk pemimpin masa depan dengan keunggulan akademik, akhlak mulia, dan wawasan global</p>
     </div>
   </div>
+
 
   <section style="background:#fff;">
     <div class="container">
@@ -952,7 +1298,7 @@
     <div class="container">
       <div class="badge badge-orange" style="margin-bottom:14px;">PPDB 2025/2026</div>
       <h1>Pendaftaran Peserta Didik Baru</h1>
-      <p>Alur pendaftaran terpadu TK, SD, dan SMP Panji Nusantara</p>
+      <p style="color: #f0f9ff; font-weight: 500; font-size: 18px; max-width: 600px; margin: 0 auto;">Alur pendaftaran terpadu TK, SD, dan SMP Panji Nusantara</p>
     </div>
   </div>
 
@@ -1198,13 +1544,80 @@
 </section>
 </div>
 
+
+<!-- ======== BERITA ======== -->
+<div id="page-berita" class="page">
+  
+  <div class="berita-hero" style="background: linear-gradient(135deg, #0369a1, #0ea5e9); padding: 80px 0; text-align: center;">
+    <div class="container">
+      <div class="badge badge-gold" style="margin-bottom:14px;">Update Terbaru</div>
+      <h1 style="font-size: clamp(32px,5vw,52px); font-weight: 900; color: #fff; margin-bottom: 16px; text-shadow: 0 4px 10px rgba(3, 105, 161, 0.3);">Berita & Pengumuman</h1>
+      <p style="color: #f0f9ff; font-weight: 500; font-size: 18px; max-width: 600px; margin: 0 auto;">Informasi terkini seputar kegiatan, prestasi, dan pengumuman dari Sekolah Islam Panji Nusantara.</p>
+    </div>
+  </div>
+
+  <section style="background: var(--gray); padding: 80px 0;">
+    <div class="container">
+      
+      <div class="berita-grid">
+        
+        <div class="berita-card">
+          <div class="berita-img-wrap">
+            <div class="berita-category" style="background: var(--gold); color: #fff;">Prestasi</div>
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=600" alt="Juara Robotik" class="berita-img">
+          </div>
+          <div class="berita-content">
+            <div class="berita-meta"><i class="fas fa-calendar-alt"></i> 15 Maret 2026</div>
+            <h3 class="berita-title">Siswa SMP Panji Nusantara Raih Juara 1 Robotik Nasional</h3>
+            <p class="berita-excerpt">Tim robotik kebanggaan sekolah berhasil menyisihkan puluhan peserta dari berbagai daerah dalam ajang kompetisi teknologi tahunan tingkat nasional...</p>
+            <a onclick="showToast('Fitur detail berita akan segera hadir!')" class="berita-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="berita-card">
+          <div class="berita-img-wrap">
+            <div class="berita-category">Kegiatan</div>
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=600" alt="Kegiatan Belajar" class="berita-img">
+          </div>
+          <div class="berita-content">
+            <div class="berita-meta"><i class="fas fa-calendar-alt"></i> 10 Maret 2026</div>
+            <h3 class="berita-title">Kunjungan Edukatif TK ke Taman Safari Indonesia</h3>
+            <p class="berita-excerpt">Siswa-siswi TK Panji Nusantara belajar mengenal berbagai macam hewan dan habitatnya secara langsung dalam program *outing class* semester ini...</p>
+            <a onclick="showToast('Fitur detail berita akan segera hadir!')" class="berita-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="berita-card">
+          <div class="berita-img-wrap">
+            <div class="berita-category" style="background: var(--blue-dark); color: #fff;">Pengumuman</div>
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=600" alt="Pengumuman" class="berita-img">
+          </div>
+          <div class="berita-content">
+            <div class="berita-meta"><i class="fas fa-calendar-alt"></i> 05 Maret 2026</div>
+            <h3 class="berita-title">Jadwal Pengambilan Raport Semester Ganjil 2025/2026</h3>
+            <p class="berita-excerpt">Diberitahukan kepada seluruh orang tua/wali murid, pembagian raport akan dilaksanakan secara bertahap mulai tanggal 20 hingga 22 Maret...</p>
+            <a onclick="showToast('Fitur detail berita akan segera hadir!')" class="berita-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+      </div>
+
+      <div style="text-align: center; margin-top: 56px;">
+        <button class="btn-secondary" onclick="showToast('Memuat berita lainnya...')"><i class="fas fa-sync-alt"></i> Muat Lebih Banyak</button>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
 <!-- ======== KONTAK ======== -->
 <div id="page-kontak" class="page">
-  <div style="background:linear-gradient(135deg,#0f2e1a,#15803D);padding:80px 0;text-align:center;">
+  <div style="background:linear-gradient(135deg, #055885, #26adec);padding:80px 0;text-align:center;">
     <div class="container">
       <div class="badge badge-orange" style="margin-bottom:14px;">Hubungi Kami</div>
       <h1 style="font-size:clamp(32px,5vw,52px);font-weight:900;color:#fff;margin-bottom:16px;">Kontak & Lokasi</h1>
-      <p style="color:rgba(255,255,255,.8);font-size:17px;">Kami siap membantu Anda. Jangan ragu untuk menghubungi kami.</p>
+      <p style="color: #f0f9ff; font-weight: 500; font-size: 18px; max-width: 600px; margin: 0 auto;">Kami siap membantu Anda. Jangan ragu untuk menghubungi kami.</p>
     </div>
   </div>
 
@@ -1441,9 +1854,9 @@
         </div>
         <div class="footer-col">
           <h4>Unit Sekolah</h4>
-          <a onclick="showPage('tk')">TK Panji Nusantara</a>
-          <a onclick="showPage('sd')">SD Panji Nusantara</a>
-          <a onclick="showPage('smp')">SMP Panji Nusantara</a>
+          <a onclick="showPage('tk')">TK Islam Panji Nusantara</a>
+          <a onclick="showPage('sd')">SD Islam Panji Nusantara</a>
+          <a onclick="showPage('smp')">SMP Islam Panji Nusantara</a>
         </div>
         <div class="footer-col footer-contact">
           <h4>Kontak</h4>
@@ -1459,7 +1872,7 @@
       </div>
     </div>
   </footer>
-
+</div>
 <script>
   // PAGE NAVIGATION
   function showPage(page) {
@@ -1643,6 +2056,68 @@
     parentItem.classList.toggle('active');
   }
 
+// --- FUNGSI SLIDER UNIVERSAL (BISA UNTUK BANYAK SLIDER) ---
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // Fungsi utama pembuat animasi
+    function initSeamlessSlider(selector) {
+      const slider = document.querySelector(selector);
+      if (!slider) return;
+
+      // 1. Gandakan isi kartu
+      slider.innerHTML += slider.innerHTML; 
+
+      let autoScrollTimer;
+      const waktuJeda = 3500; // Jeda 3.5 detik
+
+      // 2. Sensor Looping (Biar gak mentok pas discroll manual)
+      let deteksiBerhenti;
+      slider.addEventListener('scroll', () => {
+        window.clearTimeout(deteksiBerhenti);
+        
+        deteksiBerhenti = setTimeout(() => {
+          const batasSetengah = slider.scrollWidth / 2;
+          
+          if (slider.scrollLeft >= batasSetengah - 10) {
+            slider.style.scrollBehavior = 'auto'; 
+            slider.scrollLeft = 0; 
+          }
+        }, 150); 
+      });
+
+      // Hitung otomatis lebar kartu + jarak (gap) biar pergerakannya akurat
+      const firstCard = slider.children[0];
+      const gap = parseInt(window.getComputedStyle(slider).gap) || 0;
+      
+      // 3. Fungsi Auto Geser
+      function startScroll() {
+        autoScrollTimer = setInterval(() => {
+          const geserJarak = firstCard.offsetWidth + gap;
+          slider.style.scrollBehavior = 'smooth'; 
+          slider.scrollLeft += geserJarak; 
+        }, waktuJeda);
+      }
+
+      function stopScroll() {
+        clearInterval(autoScrollTimer);
+      }
+
+      // Mulai animasi
+      startScroll();
+
+      // Pause saat disentuh biar enak bacanya
+      slider.addEventListener('mouseenter', stopScroll);
+      slider.addEventListener('touchstart', stopScroll);
+      slider.addEventListener('mouseleave', startScroll);
+      slider.addEventListener('touchend', startScroll);
+    }
+
+    // ==========================================
+    // AKTIFKAN ANIMASI UNTUK KEDUA BAGIAN DISINI:
+    // ==========================================
+    initSeamlessSlider('.program-slider');  // Aktifkan Keunggulan
+    initSeamlessSlider('.prestasi-slider'); // Aktifkan Prestasi
+  });
   // ENTER key on admin login
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' && document.getElementById('page-admin').classList.contains('active')) adminLogin();
